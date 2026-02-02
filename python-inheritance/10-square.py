@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+Method of class that defines a square from Rectangle class
+
+
+"""
+
+
 Rectangle = __import__('9-rectangle').Rectangle
 
 
