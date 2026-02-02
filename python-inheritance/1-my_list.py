@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+Module that provides a function to list attributes references of class list.
+
+"""
+
+
 class MyList(list):
     """ Class that inherits the attributes references of class list
 
