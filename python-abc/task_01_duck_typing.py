@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Import ABC (Abstract Base Class) and abstractmethod
 from the abc module, these allow you to create abstract classes.
@@ -31,11 +31,9 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        """Calcule l'aire du cercle."""
         return math.pi * (self.radius ** 2)
 
     def perimeter(self):
-        """Calcule le périmètre du cercle."""
         return 2 * math.pi * self.radius
 
 
@@ -47,11 +45,9 @@ class Rectangle(Shape):
         self.height = height
 
     def area(self):
-        """Calcule l'aire du rectangle."""
         return self.width * self.height
 
     def perimeter(self):
-        """Calcule le périmètre du rectangle."""
         return 2 * (self.width + self.height)
 
 
