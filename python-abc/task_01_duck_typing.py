@@ -2,9 +2,7 @@
 """
 Import ABC (Abstract Base Class) and abstract method
 from the abc module, these allow you to create abstract classes.
-
 """
-
 
 from abc import ABC, abstractmethod
 import math
@@ -56,5 +54,5 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    # Return the area and perimeter of a shape using duck typing.
-    return (shape.area(), shape.perimeter())
+    print("Area:", shape.area())
+    print("Perimeter:", shape.perimeter())
