@@ -13,12 +13,12 @@ class Shape(ABC):
     """ Abstract base class representing a geometric shape."""
 
     @abstractmethod
-    def area(self):
+    def area(self) -> float():
         """ Return the area of the shape."""
         pass
 
     @abstractmethod
-    def perimeter(self):
+    def perimeter(self) -> float():
         """Return the perimeter of the shape.
         """
         pass
