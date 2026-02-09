@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """Module that defines a a function that returns the dictionary
 description with simple data structure
 (list, dictionary, string, integer and boolean)
