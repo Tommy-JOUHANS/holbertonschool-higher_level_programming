@@ -1,0 +1,48 @@
+========================================
+UNIT TEST REPORT – add_item SCRIPT
+========================================
+
+Script Name : add_item.py
+Language    : Python 3
+Author      : —
+Date        : —
+
+----------------------------------------
+SCRIPT DESCRIPTION
+----------------------------------------
+This script adds all command-line arguments to a Python
+list, saves the list to a JSON file, and reloads the file.
+If the file does not exist, it creates a new list.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Libraries        : sys, json
+Files Used       : add_item.json
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Run script with no arguments
+----------------------------------------
+Command:
+$ ./add_item.py
+
+Initial State:
+- File "add_item.json" does not exist.
+
+Expected Result:
+- A new file "add_item.json" is created.
+- The file contains an empty list: []
+
+Actual Result:
+- The file is created.
+- The file contains [].
+
+Status:
+PASS
+
+----
