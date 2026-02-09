@@ -1,0 +1,124 @@
+========================================
+UNIT TEST REPORT – write_file FUNCTION
+========================================
+
+Program Name : write_file
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function write_file writes a string to a text file
+encoded in UTF-8 and returns the number of characters
+written to the file.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Encoding         : UTF-8
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Write simple text to a new file
+----------------------------------------
+Input:
+- filename = "output.txt"
+- text = "Hello World"
+
+Expected Result:
+- The file "output.txt" is created.
+- The content of the file is "Hello World".
+- The function returns 11.
+
+Actual Result:
+- The file is created.
+- The content is "Hello World".
+- The function returns 11.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Write empty string
+----------------------------------------
+Input:
+- filename = "empty.txt"
+- text = ""
+
+Expected Result:
+- The file is created.
+- The file is empty.
+- The function returns 0.
+
+Actual Result:
+- The file is created.
+- The file is empty.
+- The function returns 0.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : Overwrite existing file
+----------------------------------------
+Input:
+- filename = "existing.txt"
+- Initial content: "Old text"
+- text = "New text"
+
+Expected Result:
+- The previous content is erased.
+- The file contains "New text".
+- The function returns 8.
+
+Actual Result:
+- The previous content is erased.
+- The file contains "New text".
+- The function returns 8.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : Write text with special characters
+----------------------------------------
+Input:
+- filename = "unicode.txt"
+- text = "Café 🚀"
+
+Expected Result:
+- The file contains "Café 🚀".
+- UTF-8 characters are correctly written.
+- The function returns 6.
+
+Actual Result:
+- The file contains "Café 🚀".
+- UTF-8 characters are correctly written.
+- The function returns 6.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 4
+Passed Tests  : 4
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The write_file function works as expected.
+It correctly writes text to files, overwrites
+existing files, supports UTF-8 characters,
+and returns the correct number of characters.
