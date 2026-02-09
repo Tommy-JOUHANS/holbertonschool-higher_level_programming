@@ -1,0 +1,135 @@
+========================================
+UNIT TEST REPORT – Student CLASS
+========================================
+
+Class Name  : Student
+Method     : to_json
+Language   : Python 3
+Author     : —
+Date       : —
+
+----------------------------------------
+CLASS DESCRIPTION
+----------------------------------------
+The Student class defines a student using three
+attributes: first_name, last_name, and age.
+The to_json method returns a dictionary
+representation of a Student instance.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Create Student instance
+----------------------------------------
+Input:
+- first_name = "John"
+- last_name = "Doe"
+- age = 20
+
+Expected Result:
+- A Student object is created.
+- Attributes are correctly assigned.
+
+Actual Result:
+- Student object created successfully.
+- Attributes are correct.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Convert Student to dictionary
+----------------------------------------
+Input:
+- student = Student("John", "Doe", 20)
+- student.to_json()
+
+Expected Result:
+- The method returns:
+  {
+    "first_name": "John",
+    "last_name": "Doe",
+    "age": 20
+  }
+
+Actual Result:
+- The method returns the correct dictionary.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : Verify returned type
+----------------------------------------
+Input:
+- student.to_json()
+
+Expected Result:
+- The returned value is of type dict.
+
+Actual Result:
+- Returned type is dict.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : Modify attributes after creation
+----------------------------------------
+Input:
+- student = Student("Jane", "Smith", 22)
+- student.age = 23
+- student.to_json()
+
+Expected Result:
+- The returned dictionary reflects updated values:
+  {"first_name": "Jane", "last_name": "Smith", "age": 23}
+
+Actual Result:
+- The dictionary reflects updated values.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 5 : Multiple Student instances
+----------------------------------------
+Input:
+- student1 = Student("Alice", "Brown", 18)
+- student2 = Student("Bob", "White", 25)
+
+Expected Result:
+- Each instance has its own dictionary representation.
+- Data from one instance does not affect the other.
+
+Actual Result:
+- Each instance is independent.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 5
+Passed Tests  : 5
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The Student class and its to_json method behave
+as expected. The method correctly returns a
+dictionary representation of a Student instance
+using its attributes.
