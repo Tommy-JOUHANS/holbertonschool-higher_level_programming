@@ -43,15 +43,13 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             parts = line.split()
-            if len(parts) >= 9:
-                # file size
-                try:
-                    magic.size += int(parts[-1])
-                except (ValueError, IndexError):
-                    pass
-
+            try:
+                magic.size += int(parts[-1])
                 # status code
                 magic.add_status_code(parts[-2])
+
+            except (IndexError, ValueError):
+                pass
 
             nlines += 1
             if nlines == 10:
