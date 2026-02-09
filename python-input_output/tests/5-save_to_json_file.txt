@@ -1,0 +1,135 @@
+========================================
+UNIT TEST REPORT – save_to_json_file FUNCTION
+========================================
+
+Program Name : save_to_json_file
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function save_to_json_file writes a Python object
+to a text file using its JSON representation. The file
+is encoded in UTF-8 and supports non-ASCII characters.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Library          : json
+Encoding         : UTF-8
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Save dictionary to JSON file
+----------------------------------------
+Input:
+- my_obj = {"name": "Alice", "age": 25}
+- filename = "data.json"
+
+Expected Result:
+- The file "data.json" is created.
+- The file contains a valid JSON representation
+  of the dictionary.
+
+Actual Result:
+- The file is created.
+- The file contains the correct JSON content.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Save list to JSON file
+----------------------------------------
+Input:
+- my_obj = [1, 2, 3, 4]
+- filename = "list.json"
+
+Expected Result:
+- The file "list.json" is created.
+- The file contains a valid JSON array.
+
+Actual Result:
+- The file is created.
+- The file contains the correct JSON array.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : Save object with UTF-8 characters
+----------------------------------------
+Input:
+- my_obj = {"message": "Café 🚀"}
+- filename = "unicode.json"
+
+Expected Result:
+- UTF-8 characters are written correctly.
+- The file contains "Café 🚀" without escaping.
+
+Actual Result:
+- UTF-8 characters are written correctly.
+- The file content is correct.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : Overwrite existing file
+----------------------------------------
+Input:
+- my_obj = {"status": "new"}
+- filename = "existing.json"
+- Initial content: {"status": "old"}
+
+Expected Result:
+- The previous content is overwritten.
+- The file contains {"status": "new"}.
+
+Actual Result:
+- The previous content is overwritten.
+- The file contains {"status": "new"}.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 5 : Invalid file path
+----------------------------------------
+Input:
+- my_obj = {"test": true}
+- filename = "/invalid_path/data.json"
+
+Expected Result:
+- An exception is raised when the file cannot be opened.
+
+Actual Result:
+- An exception is raised.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 5
+Passed Tests  : 5
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The save_to_json_file function works as expected.
+It correctly saves Python objects as JSON files,
+supports UTF-8 characters, and overwrites existing
+files when necessary.
