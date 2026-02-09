@@ -1,0 +1,112 @@
+========================================
+UNIT TEST REPORT – read_file FUNCTION
+========================================
+
+Program Name : read_file
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function read_file reads the content of a text file
+encoded in UTF-8 and prints its content to the standard
+output without adding extra characters.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Encoding         : UTF-8
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Valid file with text
+----------------------------------------
+Input:
+- filename = "sample.txt"
+- Content of sample.txt:
+  Hello World!
+
+Expected Result:
+- The content "Hello World!" is printed to stdout.
+
+Actual Result:
+- The content "Hello World!" is printed to stdout.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Empty file
+----------------------------------------
+Input:
+- filename = "empty.txt"
+- Content of empty.txt:
+  (empty file)
+
+Expected Result:
+- Nothing is printed.
+- No error occurs.
+
+Actual Result:
+- Nothing is printed.
+- No error occurs.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : File does not exist
+----------------------------------------
+Input:
+- filename = "missing.txt"
+
+Expected Result:
+- A FileNotFoundError exception is raised.
+
+Actual Result:
+- FileNotFoundError exception is raised.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : File with multiple lines
+----------------------------------------
+Input:
+- filename = "multiline.txt"
+- Content of multiline.txt:
+  Line 1
+  Line 2
+  Line 3
+
+Expected Result:
+- All lines are printed exactly as in the file.
+
+Actual Result:
+- All lines are printed exactly as in the file.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 4
+Passed Tests  : 4
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The read_file function behaves as expected.
+It correctly reads and prints file contents and
+raises an exception when the file does not exist.
