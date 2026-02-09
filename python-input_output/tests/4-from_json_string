@@ -1,0 +1,138 @@
+========================================
+UNIT TEST REPORT – from_json_string FUNCTION
+========================================
+
+Program Name : from_json_string
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function from_json_string converts a JSON string
+into its corresponding Python data structure using
+the json.loads() method.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Library          : json
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Convert JSON string to dictionary
+----------------------------------------
+Input:
+- my_str = "{\"name\": \"Alice\", \"age\": 25}"
+
+Expected Result:
+- The function returns a Python dictionary.
+- Returned value: {"name": "Alice", "age": 25}
+
+Actual Result:
+- The function returns {"name": "Alice", "age": 25}
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Convert JSON string to list
+----------------------------------------
+Input:
+- my_str = "[1, 2, 3]"
+
+Expected Result:
+- The function returns a Python list: [1, 2, 3]
+
+Actual Result:
+- The function returns [1, 2, 3]
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : Convert JSON string to string
+----------------------------------------
+Input:
+- my_str = "\"Hello\""
+
+Expected Result:
+- The function returns the string "Hello"
+
+Actual Result:
+- The function returns "Hello"
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : Convert empty JSON object
+----------------------------------------
+Input:
+- my_str = "{}"
+
+Expected Result:
+- The function returns an empty dictionary {}
+
+Actual Result:
+- The function returns {}
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 5 : Convert nested JSON object
+----------------------------------------
+Input:
+- my_str = "{\"numbers\": [1, 2], \"active\": true}"
+
+Expected Result:
+- The function returns a Python dictionary with:
+  - key "numbers" mapped to a list [1, 2]
+  - key "active" mapped to True
+
+Actual Result:
+- The function returns the correct Python data structure.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 6 : Invalid JSON string
+----------------------------------------
+Input:
+- my_str = "{name: Alice}"
+
+Expected Result:
+- A json.JSONDecodeError exception is raised.
+
+Actual Result:
+- json.JSONDecodeError exception is raised.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 6
+Passed Tests  : 6
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The from_json_string function behaves as expected.
+It correctly converts valid JSON strings into Python
+data structures and raises an exception for invalid
+JSON input.
