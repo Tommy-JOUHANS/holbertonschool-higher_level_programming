@@ -1,4 +1,4 @@
-#!/user/bin/env python3
+#!/user/bin/python3
 """Module that contains the function pascal_triangle
 that returns a list of lists of integers representing
  the Pascal’s triangle of n.
