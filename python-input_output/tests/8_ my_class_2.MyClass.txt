@@ -1,0 +1,33 @@
+========================================
+UNIT TEST REPORT – class_to_json FUNCTION
+========================================
+
+Program Name : class_to_json
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function class_to_json returns the dictionary
+description of an object using its __dict__ attribute.
+The returned dictionary contains only simple data
+structures suitable for JSON serialization.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Simple object with attributes
+----------------------------------------
+Input:
+- Class:
+  class MyClass:
+      def __
