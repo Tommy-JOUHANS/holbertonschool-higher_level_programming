@@ -1,0 +1,125 @@
+========================================
+UNIT TEST REPORT – append_write FUNCTION
+========================================
+
+Program Name : append_write
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function append_write appends a string to the end
+of a UTF-8 encoded text file and returns the number of
+characters added.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Encoding         : UTF-8
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Append text to an existing file
+----------------------------------------
+Input:
+- filename = "file.txt"
+- Initial content: "Hello"
+- text = " World"
+
+Expected Result:
+- The file already exists.
+- The text " World" is appended at the end of the file.
+- Final content: "Hello World"
+- The function returns 6.
+
+Actual Result:
+- The text is appended correctly.
+- Final content: "Hello World"
+- The function returns 6.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Append empty string
+----------------------------------------
+Input:
+- filename = "empty_append.txt"
+- Initial content: "Data"
+- text = ""
+
+Expected Result:
+- The file content remains unchanged.
+- The function returns 0.
+
+Actual Result:
+- The file content remains unchanged.
+- The function returns 0.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : Append to a non-existing file
+----------------------------------------
+Input:
+- filename = "new_file.txt"
+- text = "New content"
+
+Expected Result:
+- The file is created.
+- The file contains "New content".
+- The function returns 11.
+
+Actual Result:
+- The file is created.
+- The file contains "New content".
+- The function returns 11.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : Append UTF-8 characters
+----------------------------------------
+Input:
+- filename = "unicode.txt"
+- Initial content: "Café"
+- text = " 🚀"
+
+Expected Result:
+- UTF-8 characters are correctly appended.
+- Final content: "Café 🚀"
+- The function returns 2.
+
+Actual Result:
+- UTF-8 characters are correctly appended.
+- Final content: "Café 🚀"
+- The function returns 2.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 4
+Passed Tests  : 4
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The append_write function behaves as expected.
+It correctly appends text, creates files when
+necessary, supports UTF-8 encoding, and returns
+the correct number of characters added.
