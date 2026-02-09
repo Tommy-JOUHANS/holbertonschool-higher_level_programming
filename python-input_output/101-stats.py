@@ -1,50 +1,64 @@
 #!/usr/bin/python3
-"""A script that reads stdin line by line and computes metrics:
-    - Total file size up to that point.
-    - Count of lines by status code up to that point.
+"""
+A script that reads stdin line by line and computes metrics:
+- Total file size up to that point.
+- Count of lines by status code up to that point.
 """
 
 import sys
 
 
-def print_stats(total_size, status_codes):
-    """Print the accumulated metrics.
+class Magic:
+    """Class that defines a Magic object with a dict and size."""
+    def __init__(self):
+        self.size = 0
+        self.dic = {
+            '200': 0,
+            '301': 0,
+            '400': 0,
+            '401': 0,
+            '403': 0,
+            '404': 0,
+            '405': 0,
+            '500': 0
+        }
 
-    Args:
-        total_size (int): Total file size up to that point.
-        status_codes (dict): Count of lines by status code up to that point.
-    """
-    print("File size: {}".format(total_size))
-    for code in sorted(status_codes.keys()):
-        if status_codes[code] > 0:
-            print("{}: {}".format(code, status_codes[code]))
+    def add_status_code(self, status):
+        """Increment count of a status code."""
+        if status in self.dic:
+            self.dic[status] += 1
+
+    def print_info(self):
+        """Print current statistics."""
+        print("File size: {}".format(self.size))
+        for key in sorted(self.dic.keys()):
+            if self.dic[key] > 0:
+                print("{}: {}".format(key, self.dic[key]))
 
 
 if __name__ == "__main__":
-    total_size = 0
-    status_codes = {
-        "200": 0, "301": 0, "400": 0, "401": 0,
-        "403": 0, "404": 0, "405": 0, "500": 0
-    }
+    magic = Magic()
+    nlines = 0
 
     try:
         for line in sys.stdin:
             parts = line.split()
-            if len(parts) < 9:
-                continue
+            if len(parts) >= 9:
+                # file size
+                try:
+                    magic.size += int(parts[-1])
+                except (ValueError, IndexError):
+                    pass
 
-            try:
-                size = int(parts[-1])
-                total_size += size
-            except ValueError:
-                pass
+                # status code
+                magic.add_status_code(parts[-2])
 
-            status_code = parts[-2]
-            if status_code in status_codes:
-                status_codes[status_code] += 1
-
-            if sum(status_codes.values()) % 10 == 0:
-                print_stats(total_size, status_codes)
+            nlines += 1
+            if nlines == 10:
+                magic.print_info()
+                nlines = 0
 
     except KeyboardInterrupt:
-        print_stats(total_size, status_codes)
+        pass
+    finally:
+        magic.print_info()
