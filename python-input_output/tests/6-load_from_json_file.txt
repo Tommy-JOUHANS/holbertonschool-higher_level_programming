@@ -1,0 +1,126 @@
+========================================
+UNIT TEST REPORT – load_from_json_file FUNCTION
+========================================
+
+Program Name : load_from_json_file
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function load_from_json_file reads a JSON file
+and returns the corresponding Python object using
+the json.load() method.
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Library          : json
+Encoding         : UTF-8
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Load dictionary from JSON file
+----------------------------------------
+Input:
+- filename = "data.json"
+- File content: {"name": "Alice", "age": 25}
+
+Expected Result:
+- The function returns a Python dictionary:
+  {"name": "Alice", "age": 25}
+
+Actual Result:
+- The function returns {"name": "Alice", "age": 25}
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Load list from JSON file
+----------------------------------------
+Input:
+- filename = "list.json"
+- File content: [1, 2, 3]
+
+Expected Result:
+- The function returns a Python list: [1, 2, 3]
+
+Actual Result:
+- The function returns [1, 2, 3]
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : Load file with UTF-8 characters
+----------------------------------------
+Input:
+- filename = "unicode.json"
+- File content: {"message": "Café 🚀"}
+
+Expected Result:
+- UTF-8 characters are correctly loaded.
+- The function returns {"message": "Café 🚀"}
+
+Actual Result:
+- UTF-8 characters are correctly loaded.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : File does not exist
+----------------------------------------
+Input:
+- filename = "missing.json"
+
+Expected Result:
+- A FileNotFoundError exception is raised.
+
+Actual Result:
+- FileNotFoundError exception is raised.
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 5 : Invalid JSON content
+----------------------------------------
+Input:
+- filename = "invalid.json"
+- File content: {name: Alice}
+
+Expected Result:
+- A json.JSONDecodeError exception is raised.
+
+Actual Result:
+- json.JSONDecodeError exception is raised.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 5
+Passed Tests  : 5
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The load_from_json_file function behaves as expected.
+It correctly loads valid JSON files into Python
+objects and raises appropriate exceptions for
+missing files or invalid JSON content.
