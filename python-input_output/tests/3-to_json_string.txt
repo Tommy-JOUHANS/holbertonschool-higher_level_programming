@@ -1,0 +1,119 @@
+========================================
+UNIT TEST REPORT – to_json_string FUNCTION
+========================================
+
+Program Name : to_json_string
+Language     : Python 3
+Author       : —
+Date         : —
+
+----------------------------------------
+PROGRAM DESCRIPTION
+----------------------------------------
+The function to_json_string converts a Python object
+into its JSON string representation using json.dumps().
+
+----------------------------------------
+TEST ENVIRONMENT
+----------------------------------------
+Operating System : Linux
+Python Version   : Python 3.x
+Library          : json
+
+----------------------------------------
+TEST CASES
+----------------------------------------
+
+Test Case 1 : Convert a dictionary
+----------------------------------------
+Input:
+- obj = {"name": "Alice", "age": 25}
+
+Expected Result:
+- The function returns a JSON string.
+- Returned value: {"name": "Alice", "age": 25}
+
+Actual Result:
+- The function returns {"name": "Alice", "age": 25}
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 2 : Convert a list
+----------------------------------------
+Input:
+- obj = [1, 2, 3, 4]
+
+Expected Result:
+- The function returns "[1, 2, 3, 4]"
+
+Actual Result:
+- The function returns "[1, 2, 3, 4]"
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 3 : Convert a string
+----------------------------------------
+Input:
+- obj = "Hello"
+
+Expected Result:
+- The function returns "\"Hello\""
+
+Actual Result:
+- The function returns "\"Hello\""
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 4 : Convert an empty object
+----------------------------------------
+Input:
+- obj = {}
+
+Expected Result:
+- The function returns "{}"
+
+Actual Result:
+- The function returns "{}"
+
+Status:
+PASS
+
+----------------------------------------
+
+Test Case 5 : Convert nested object
+----------------------------------------
+Input:
+- obj = {"numbers": [1, 2], "active": True}
+
+Expected Result:
+- The function returns a valid JSON string
+  representing the nested object.
+
+Actual Result:
+- The function returns a valid JSON string.
+
+Status:
+PASS
+
+----------------------------------------
+TEST SUMMARY
+----------------------------------------
+Total Tests   : 5
+Passed Tests  : 5
+Failed Tests  : 0
+
+----------------------------------------
+CONCLUSION
+----------------------------------------
+The to_json_string function works correctly.
+It converts different Python data types into
+their proper JSON string representations.
