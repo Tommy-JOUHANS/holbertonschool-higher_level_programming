@@ -19,17 +19,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
         if self.path == "/":
             self.send_response(200)
-            self.send_header("Content-Type", "text/plain; charset=utf-8")
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write("Bonjour, ceci est une Api simple !".encode("utf-8"))
+            self.wfile.write(b"Bonjour, ceci est une Api simple !")
 
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-
             data = {"name": "John", "age": 30, "city": "New York"}
-
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif self.path == "/status":
@@ -54,7 +52,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-Type", "text/plain; charset=utf-8")
             self.end_headers()
-            self.wfile.write("Point de terminaison introuvable".encode("utf-8"))
+            self.wfile.write(b"Point de terminaison introuvable")
 
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
