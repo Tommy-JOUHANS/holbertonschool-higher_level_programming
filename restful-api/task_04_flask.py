@@ -54,10 +54,9 @@ def get_user(username):
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    try:
-        data = request.get_json()
-    except Exception:
-        return jsonify({"error": "Invalid JSON"}), 400
+
+    data = request.get_json()
+
 
     if not data:
         return jsonify({"error": "Invalid JSON"}), 400
@@ -71,6 +70,7 @@ def add_user():
         return jsonify({"error": "Username already exists"}), 409
 
     users[username] = data
+
     return jsonify({
         "message": "User added",
         "user": data
