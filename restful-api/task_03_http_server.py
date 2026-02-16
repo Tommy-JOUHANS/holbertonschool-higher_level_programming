@@ -21,14 +21,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "text/plain; charset=utf-8")
             self.end_headers()
-            self.wfile.write("Hello, this is a simple API!".encode("utf-8"))
+            self.wfile.write("Bonjour, ceci est une Api simple !".encode("utf-8"))
 
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
 
-            data = {"name": "John Doe", "age": 30, "city": "New York"}
+            data = {"name": "John", "age": 30, "city": "New York"}
 
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
@@ -45,7 +45,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
             info = {
                 "version": "1.0",
-                "description": "A simple API built with http.server"
+                "description": "Une API simple construite avec http.server"
             }
 
             self.wfile.write(json.dumps(info).encode("utf-8"))
@@ -54,7 +54,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-Type", "text/plain; charset=utf-8")
             self.end_headers()
-            self.wfile.write("Endpoint not found".encode("utf-8"))
+            self.wfile.write("Point de terminaison introuvable".encode("utf-8"))
 
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
