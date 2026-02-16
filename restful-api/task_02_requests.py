@@ -1,6 +1,4 @@
 import requests
-import json
-import flask
 import csv
 
 """Module to fetch posts from JSONPlaceholder using requests.get()"""
@@ -13,8 +11,6 @@ def fetch_and_print_posts():
         posts = response.json()
         for post in posts:
             print(f"{post['title']}, {post['body']}")
-    else:
-        print(f"Status code: {response.status_code}")
 
 
 def fetch_and_save_posts():
@@ -27,5 +23,3 @@ def fetch_and_save_posts():
             writer.writerow(["id", "title", "body"])
             for post in posts:
                 writer.writerow([post['id'], post['title'], post['body']])
-    else:
-        print(f"Status code: {response.status_code}")
