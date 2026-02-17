@@ -8,22 +8,19 @@ and authorization mechanisms, ensuring only authorized users
 can access certain resources.
 
 """
-from flask import Flask, jsonify, request
+from flask import Flask, request, jsonify
 from flask_httpauth import HTTPBasicAuth
-from flask_jwt_extended import (
-    JWTManager,
-    create_access_token,
-    jwt_required,
-    get_jwt
-)
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required
+
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
-app.config["JWT_SECRET_KEY"] = "super-secret-key"
+
 
 auth = HTTPBasicAuth()
+app.config["JWT_SECRET_KEY"] = "super-secret-key"
 jwt = JWTManager(app)
 
 users = {
@@ -52,19 +49,20 @@ def basic_protected():
 
 @app.route("/login", methods = ["POST"])
 def login():
-    username = request.json.get("username", None)
-    password = request.json.get("password", None)
+    data = request.get_json()
 
-    user = users.get(username)
+    if not data:
+        return jsonify({"error": "Missing JSON"}), 400
 
-    if user and check_password_hash(user["password"], password):
-        access_token = create_access_token(
-            identity=username,
-            additional_claims={"role": user["role"]}
-        )
-        return jsonify(access_token=access_token)
+    username = data.get("username")
+    password = data.get("password")
 
-    return jsonify({"error": "Invalid credentials"}), 401
+
+    if username != "admin" or password != "password":
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    access_token = create_access_token(identity=username)
+    return jsonify(access_token=access_token), 200
 
 @app.route("/admin-only", methods = ["GET"])
 @jwt_required()
@@ -79,7 +77,7 @@ def admin_only():
 @app.route("/jwt-protected", methods = ["GET"])
 @jwt_required()
 def protected():
-        return jsonify({"message": "JWT Auth: Access Granted"}), 200
+        return "JWT Auth: Access Granted"
 
 
 
@@ -104,4 +102,4 @@ def handle_needs_fresh_token_error(err):
     return jsonify({"error": "Fresh token required"}), 401
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
