@@ -67,7 +67,7 @@ def jwt_protected():
 
 @app.route("/admin-only")
 @jwt_required()
-def admin_only():
+def admin_only():cd
     identity = get_jwt_identity()
     if identity["role"] != "admin":
         return jsonify(error="Admin access required"), 403
