@@ -1,2 +1,3 @@
--- List all values in the `first_table` table
-SELECT * FROM first_table;  
+-- List all in tables in the current database
+SELECT * FROM first_table;
+
