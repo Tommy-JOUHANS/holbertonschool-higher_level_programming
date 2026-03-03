@@ -1,9 +1,6 @@
--- Create the database named hbtn__0d2 and the user user_0d_2 with password user_0d_2_pwd
--- User_0d_2 should have all SELECT privileges on the database hbtn__0d2
--- The user_0d_2 password should be set to user_0d_2_pwd
--- If the database hbtn__0d2 already exists, your script should not fail
--- If the user user_0d_2 already exists, your script should not fail
-CREATE DATABASE IF NOT EXISTS hbtn__0d2;
-CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost' IDENTIFIED BY 'user_0d_2_pwd';
-GRANT SELECT ON hbtn__0d2.* TO 'user_0d_2'@'localhost';
-FLUSH PRIVILEGES;
+-- Script that creates an user and a database in MySQL server
+-- Query to create the user 'user_0d_1' and the database 'hbtn_0d_2' in MySQL server
+CREATE DATABASE IF NOT EXISTS hbtn_0d_2;
+CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost';
+SET PASSWORD FOR 'user_0d_2'@'localhost' = 'user_0d_2_pwd';
+GRANT SELECT ON hbtn_0d_2.* TO 'user_0d_2'@'localhost';
