@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-Lists all states from the database hbtn_0e_0_usa
+Lists all values in the stables tables of a database
+where name matches the argument
 """
 import sys
-import MySQLdb
+import MySQLdb  
 
 
 if __name__ == '__main__':
@@ -11,7 +12,7 @@ if __name__ == '__main__':
                          db=sys.argv[3], port=3306)
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states;")
+    cur.execute("SELECT * FROM states WHERE name = %s;", (sys.argv[4],))
     states = cur.fetchall()
 
     for state in states:
