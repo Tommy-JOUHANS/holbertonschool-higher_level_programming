@@ -27,7 +27,3 @@ def update_state():
         session.commit()
 
     session.close()
-
-
-if name == "main":
-    update_state()
