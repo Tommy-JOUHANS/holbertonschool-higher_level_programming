@@ -1,4 +1,4 @@
--- Import the database dump from hbtn_0d_tvshows.sql to your MySQL server
+-- Import the database dump from hbtn_0d_tvshows.sql
 -- Script that lists all genres contained in the database hbtn_0d_tvshows
 SELECT tv_shows.title, tv_show_genres.genre_id -- Query to join tv_shows and tv_show_genres
 FROM tv_shows

@@ -1,4 +1,4 @@
--- Inport the database dump of hbtn_0d_tvshows to your MySQL server
+-- Inport the database dump of hbtn_0d_tvshows
 -- Script that uses the database hbtn_0d_tvshows database to list all genres of the shows Dexter
 SELECT tv_genres.name -- Query to join tv_shows, tv_show_genres and tv_genres to list all genres of the show Dexter
 FROM tv_shows
