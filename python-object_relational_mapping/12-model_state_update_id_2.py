@@ -38,5 +38,5 @@ def update_state():
     session.close()
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     update_state()
