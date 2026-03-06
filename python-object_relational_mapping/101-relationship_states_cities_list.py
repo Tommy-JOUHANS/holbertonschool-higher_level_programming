@@ -3,29 +3,10 @@
 
 import sys
 
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
-from sqlalchemy.orm import declarative_base, relationship, sessionmaker
-
-Base = declarative_base()
-
-
-class State(Base):
-    __tablename__ = "states"
-
-    id = Column(Integer, primary_key=True)
-    name = Column(String(128), nullable=False)
-
-    cities = relationship("City", back_populates="state")
-
-
-class City(Base):
-    __tablename__ = "cities"
-
-    id = Column(Integer, primary_key=True)
-    name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey("states.id"))
-
-    state = relationship("State", back_populates="cities")
+from relationship_state import Base, State
+from relationship_city import City
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -36,17 +17,15 @@ if __name__ == "__main__":
 
     engine = create_engine(
         f"mysql+mysqldb://{user}:{password}@localhost:3306/{db}",
-        pool_pre_ping=True
-    )
+        pool_pre_ping=True)
+    Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id).all()
+    st = session.query(State).outerjoin(City).order_by(State.id, City.id).all()
 
-    for state in states:
-        print(f"{state.id}: {state.name}")
+    for state in st:
+        print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print(f"\t{city.id}: {city.name}")
-
-    session.close()
+            print("    {}: {}".format(city.id, city.name))
