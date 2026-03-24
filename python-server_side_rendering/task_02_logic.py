@@ -21,7 +21,14 @@ def contact():
 def items():
     with open('items.json', 'r') as f:
         items_data = json.load(f)
-    return render_template('items.html', items=items_data['items'])
+    
+    # Gère si c'est un dict {"items": [...]} ou directement une liste []
+    if isinstance(items_data, list):
+        items_list = items_data
+    else:
+        items_list = items_data.get('items', [])
+    
+    return render_template('items.html', items=items_list)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
