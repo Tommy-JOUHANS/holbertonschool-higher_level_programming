@@ -1,4 +1,8 @@
-a = 1
-b = 1
-print(a is b)  # True — they point to the SAME object
-print(id(a) == id(b))  # True
+a = 1024
+b = 1024
+del a
+del b
+c = 1024
+print(c is a)  # False — they point to DIFFERENT objects
+print(id(c) == id(a))  # False
+
