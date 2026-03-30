@@ -1,5 +1,4 @@
-#!/usr/bin/python
-def magic_string():
-    magic_string.counter += 1
-    return ", ".join(["BestSchool"] * magic_string.counter)
-magic_string.counter = 0
+#!/usr/bin/python3
+def magic_string(n=[0]):
+    n[0] += 1
+    return ", ".join(["BestSchool"] * n[0])
