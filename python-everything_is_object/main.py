@@ -1,2 +1,2 @@
-x = 10
-print(type(x))
+from int import a
+print(a)        

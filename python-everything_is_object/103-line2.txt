@@ -1,1 +1,2 @@
+from int import b
 print(b)
